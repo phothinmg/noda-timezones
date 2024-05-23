@@ -8,6 +8,21 @@ This package is not related to Noda Time and not all of Noda Time's APIs.
 
 Some of the Timezones information provided by Noda Time is only created to be used in Node.js.
 
+
+### Install
+
+```bash
+npm i noda-timezones
+```
+
+```bash
+yarn add noda-timezones
+```
+
+```bash
+pnpm i noda-timezones
+```
+
 ### Usage
 
 ```javascript
@@ -53,4 +68,8 @@ console.log(timezoneNamesInAsia.asia); // Retrieves the names of different time 
 - america: A  array of time zone names in the Americas.
 */
 ```
+
+### API Docs
+
+https://phothinmg.github.io/noda-timezones/
 

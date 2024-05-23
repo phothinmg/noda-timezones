@@ -1,0 +1,8 @@
+{
+  "name": "@ptm/noda-timezones",
+  "version": "0.1.0",
+  "exports": "./jsr/mod.ts",
+  "publish": {
+    "include": ["LICENSE", "README.md", "jsr.json", "jsr/**/*.ts"]
+  }
+}

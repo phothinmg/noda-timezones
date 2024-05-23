@@ -9,7 +9,13 @@
     "build": "timeout 10 node ./src/generate.js && tsup",
     "test": "jest"
   },
-  "keywords": [],
+  "keywords": [
+    "timezones"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phothinmg/noda-timezones"
+  },
   "author": "Pho Thin Maung",
   "license": "Apache-2.0",
   "dependencies": {
