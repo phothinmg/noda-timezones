@@ -19,7 +19,8 @@
   "author": "Pho Thin Maung",
   "license": "Apache-2.0",
   "dependencies": {
-    "array-json": "^2.1.1"
+    "array-json": "^2.1.1",
+    "jsr": "^0.12.4"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
