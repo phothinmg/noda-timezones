@@ -1,6 +1,6 @@
-import nodadata from "./noda.json" assert { type: "json" };
-import caldata from "./caldata.json" assert { type: "json" };
-import data from "./timezones.json" assert { type: "json" };
+import nodadata from "./noda.json" with { type: "json" };
+import caldata from "./caldata.json" with { type: "json" };
+import data from "./timezones.json" with { type: "json" };
 
 type UTC = {
   utcTimeStemp: number;
