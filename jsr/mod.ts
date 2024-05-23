@@ -154,7 +154,7 @@ export const zoneCurrentTime = (timezone: string): Date => {
  *   #### city - The name of the city.
  * 
  * ### Returns
- *    #### The current time in the specified city.
+ *    #### The current time in the specified city. If invalid city name return UTC current time.
  * 
  *
  * 
