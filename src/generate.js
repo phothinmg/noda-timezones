@@ -3,7 +3,7 @@ import { writeJson } from "array-json";
 /**
  * Fetches timezone data from nodatime.org and processes it to create JSON files.
  */
-async function noda() {
+async function noda(folder) {
   // Arrays to store timezone data
   let t = [];
   let abb = [];
@@ -61,15 +61,16 @@ async function noda() {
       });
 
       // Write timezone data to a JSON file
-      await writeJson(path.join(process.cwd(), "data/noda.json"), data);
+      await writeJson(path.join(process.cwd(), `${folder}/noda.json`), data);
     });
 
   // Flatten timezone data for writing to JSON files
   const tz = t.flatMap((i) => i);
-  await writeJson(path.join(process.cwd(), "data/timezones.json"), tz);
+  await writeJson(path.join(process.cwd(), `${folder}/timezones.json`), tz);
 
   // Flatten abb array and write to JSON file
   var zz = abb.flatMap((i) => i);
-  await writeJson(path.join(process.cwd(), "data/caldata.json"), zz);
+  await writeJson(path.join(process.cwd(), `${folder}/caldata.json`), zz);
 }
-await noda();
+await noda("data");
+await noda("jsr");

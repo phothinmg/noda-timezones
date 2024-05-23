@@ -1,12 +1,17 @@
-import nodadata from "../data/noda.json" assert { type: "json" };
-import caldata from "../data/caldata.json" assert { type: "json" };
-import data from "../data/timezones.json" assert { type: "json" };
+import nodadata from "./noda.json" assert { type: "json" };
+import caldata from "./caldata.json" assert { type: "json" };
+import data from "./timezones.json" assert { type: "json" };
 
+type UTC = {
+  utcTimeStemp: number;
+  utcDateString: string;
+  utcClock: string;
+};
 /**
  * Function to calculate and return the UTC time details.
  * @returns An object containing utcTimeStemp, utcDateString, and utcClock.
  */
-const utc = () => {
+function utc(): UTC {
   // Get the local time in milliseconds
   const localTime = new Date().getTime();
 
@@ -33,13 +38,13 @@ const utc = () => {
 
   // Return an object with UTC details
   return { utcTimeStemp, utcDateString, utcClock };
-};
+}
 
 /**
  * Function to get the UTC timestamp.
  * @returns The UTC timestamp value.
  */
-const utcTimeStemp = () => {
+function utcTimeStemp(): number{
   return utc().utcTimeStemp;
 };
 export type ZoneData =
@@ -74,7 +79,7 @@ export type ZoneData =
  */
 export function zoneData(timezone: string): ZoneData {
   const zones = nodadata.zones;
-  let obj;
+  let obj: ZoneData;
 
   for (const item of zones) {
     const name = [item.id, ...item.aliases];
@@ -94,18 +99,6 @@ export function zoneData(timezone: string): ZoneData {
   }
 
   return obj;
-}
-/**
- * **Returns all the zone data.**
- * 
- * @returns An array containing all the zone data.
- * 
- * @example
- * 
- * console.log(allZonesData())
- */
-export function allZonesData() {
-  return nodadata.zones;
 }
 /**
  * **Retrieves the current local time for a given timezone.**
@@ -135,9 +128,9 @@ export const zoneCurrentTime = (timezone: string): Date => {
 };
 /**
  * **Calculates the current time in a specified city.**
- * 
+ *
  * Only capital cities and major cities are available.
- * 
+ *
  * @param city - The name of the city.
  * @returns The current time in the specified city.
  *

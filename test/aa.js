@@ -1,5 +1,4 @@
 import {
-  allZonesData,
   getTimeZoneNames,
   zoneCurrentTime,
   zoneData,
@@ -8,7 +7,7 @@ import {
 
 // console.log(zoneCurrentTime("Asia/Yangon").toLocaleString());
 // console.log(getTimeZoneNames().usa);
-console.log(getTimeZoneNames().asia);
-// console.log(zoneData("Asia/Yangon"));
+// console.log(getTimeZoneNames().asia);
+console.log(zoneData("Asia/Yangon"));
 
 // console.log(currentTimeInCity("Bangkok").toLocaleString());

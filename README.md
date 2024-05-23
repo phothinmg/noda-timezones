@@ -27,7 +27,6 @@ pnpm i noda-timezones
 
 ```javascript
 import {
-  allZonesData,
   getTimeZoneNames,
   zoneCurrentTime,
   zoneData,
@@ -43,8 +42,6 @@ console.log(zoneTime); // Retrieves the current local time for a given timezone.
 const cityTime = currentTimeInCity("Bangkok").toLocaleString();
 console.log(time); // Calculates the current time in a specified city.
 // Only capital cities and major cities are available.
-
-console.log(allZonesData()) // Returns all the zone data.
 
 const timezoneNamesInAsia: TimezoneNames = getTimeZoneNames();
 console.log(timezoneNamesInAsia.asia); // Retrieves the names of different time zones categorized by region.
