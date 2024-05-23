@@ -1,6 +1,6 @@
-import nodadata from "../data/noda.json";
-import caldata from "../data/caldata.json";
-import data from "../data/timezones.json";
+import nodadata from "../data/noda.json" assert { type: "json" };
+import caldata from "../data/caldata.json" assert { type: "json" };
+import data from "../data/timezones.json" assert { type: "json" };
 
 /**
  * Function to calculate and return the UTC time details.
