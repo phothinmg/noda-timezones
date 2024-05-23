@@ -2,6 +2,9 @@ import nodadata from "../data/noda.json";
 import caldata from "../data/caldata.json";
 import data from "../data/timezones.json";
 
+/**
+ * **Type definition for utc function.**
+ */
 type UTC = {
   utcTimeStemp: number;
   utcDateString: string;
@@ -47,6 +50,13 @@ function utc(): UTC {
 function utcTimeStemp(): number{
   return utc().utcTimeStemp;
 };
+/**
+ * ## Type definition for ZoneData.
+ * 
+ * >> Represents the type definition for ZoneData, which can either be an object
+ * containing timezone details such as id, aliases, location, offsets, currentOffset,
+ * and nextTransition; or undefined if no data is available.
+ */
 export type ZoneData =
   | {
       id: string; // Name of timezone
@@ -64,18 +74,24 @@ export type ZoneData =
     }
   | undefined;
 /**
- * **Zone Data provided by Noda Time**
+ * ## Zone Data provided by Noda Time
  *
  * https://nodatime.org/
  *
- * Returns the zone object corresponding to the given timezone.
- * @param timezone - The timezone for which the zone object is required.
- * @returns The zone object corresponding to the given timezone.
+ * ### Input
+ *   #### timezone - The timezone for which the zone object is required.
+ * 
+ * ### Returns
+ *  #### The zone object corresponding to the given timezone.
+ *  
+ * ### Note
+ *   #### If invilid timezone name return ==> undefined .
  *
- * @example
  *
+ *```js
  * const zoneData = zoneData("Asia/Yangon");
  * console.log(zoneData);
+ * ```
  */
 export function zoneData(timezone: string): ZoneData {
   const zones = nodadata.zones;
@@ -101,13 +117,16 @@ export function zoneData(timezone: string): ZoneData {
   return obj;
 }
 /**
- * **Retrieves the current local time for a given timezone.**
+ * ## Retrieves the current local time for a given timezone.
+ * 
+ * ---
  * @param timezone - The timezone for which the current local time needs to be retrieved.
  * @returns The current local time as a Date object.
  *
- * @example
+ * ```js
  * const zoneTime = zoneCurrentTime("Asia/Yangon").toLocaleString();
  * console.log(zoneTime);
+ * ```
  */
 export const zoneCurrentTime = (timezone: string): Date => {
   // Get the current UTC timestamp
@@ -127,16 +146,22 @@ export const zoneCurrentTime = (timezone: string): Date => {
   return local;
 };
 /**
- * **Calculates the current time in a specified city.**
+ *  ## Calculates the current time in a specified city
  *
  * Only capital cities and major cities are available.
  *
- * @param city - The name of the city.
- * @returns The current time in the specified city.
+ * ### Input
+ *   #### city - The name of the city.
+ * 
+ * ### Returns
+ *    #### The current time in the specified city.
+ * 
  *
- * @example
+ * 
+ * ```js
  * const cityTime = currentTimeInCity("Bangkok").toLocaleString();
  * console.log(time);
+ * ```
  */
 export function currentTimeInCity(city: string): Date {
   const utc = utcTimeStemp();
@@ -152,7 +177,14 @@ export function currentTimeInCity(city: string): Date {
   const cityTime = new Date(utc + offset);
   return cityTime;
 }
-
+/**
+ * **Type definition for TimezoneNames.**
+ * 
+ * 
+ * Represents the type definition for TimezoneNames, which includes categorized time zone names by region.
+ * Contains properties for all time zones, Africa, USA, Canada, Brazil, Mexico, Antarctica, 
+ * Indian Ocean, Atlantic Ocean, Australia, Europe, Arctic Ocean, Pacific Ocean, Chile, Asia, and the Americas.
+ */
 export type TimezoneNames = {
   all: string[];
   africa: string[];
@@ -193,10 +225,11 @@ export type TimezoneNames = {
  * - asia: A  array of time zone names in Asia.
  * - america: A  array of time zone names in the Americas.
  *
- * @example
- *
+ * 
+ * ```js
  * const timezoneNamesInAsia: TimezoneNames = getTimeZoneNames();
  * console.log(timezoneNamesInAsia.asia);
+ * ```
  */
 export function getTimeZoneNames(): TimezoneNames {
   const africa = data.filter((i: string) => i.split("/")[0] === "Africa");

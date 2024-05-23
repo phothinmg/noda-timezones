@@ -9,6 +9,62 @@ This package is not related to Noda Time and not all of Noda Time's APIs.
 Some of the Timezones information provided by Noda Time is only created to be used in Node.js.
 
 
+## JSR 
+
+[![JSR](https://jsr.io/badges/@ptm/noda-timezones)](https://jsr.io/@ptm/noda-timezones)
+
+### Install 
+
+Runtime - Deno
+
+```bash
+deno add @ptm/noda-timezones
+```
+
+Runtime - Node.js
+
+```bash
+npx jsr add @ptm/noda-timezones
+```
+
+```bash
+yarn dlx jsr add @ptm/noda-timezones
+```
+
+
+```bash
+pnpm dlx  jsr add @ptm/noda-timezones
+```
+
+Runtime - Bun
+
+```bash
+bunx dlx  jsr add @ptm/noda-timezones
+```
+
+### Usage
+
+```typescript
+
+import { zoneData } from "@ptm/noda-timezones";
+import { zoneCurrentTime } from "@ptm/noda-timezones";
+import { currentTimeInCity } from "@ptm/noda-timezones";
+import { getTimeZoneNames } from "@ptm/noda-timezones";
+
+```
+
+### API Docs on JSR 
+
+https://jsr.io/@ptm/noda-timezones/doc
+
+
+---
+
+## NPM 
+
+![NPM Version](https://img.shields.io/npm/v/noda-timezones)
+
+
 ### Install
 
 ```bash
@@ -69,4 +125,7 @@ console.log(timezoneNamesInAsia.asia); // Retrieves the names of different time 
 ### API Docs
 
 https://phothinmg.github.io/noda-timezones/
+
+ 
+
 
