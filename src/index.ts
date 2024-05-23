@@ -47,12 +47,12 @@ function utc(): UTC {
  * Function to get the UTC timestamp.
  * @returns The UTC timestamp value.
  */
-function utcTimeStemp(): number{
+function utcTimeStemp(): number {
   return utc().utcTimeStemp;
-};
+}
 /**
  * ## Type definition for ZoneData.
- * 
+ *
  * >> Represents the type definition for ZoneData, which can either be an object
  * containing timezone details such as id, aliases, location, offsets, currentOffset,
  * and nextTransition; or undefined if no data is available.
@@ -80,10 +80,10 @@ export type ZoneData =
  *
  * ### Input
  *   #### timezone - The timezone for which the zone object is required.
- * 
+ *
  * ### Returns
  *  #### The zone object corresponding to the given timezone.
- *  
+ *
  * ### Note
  *   #### If invilid timezone name return ==> undefined .
  *
@@ -118,7 +118,7 @@ export function zoneData(timezone: string): ZoneData {
 }
 /**
  * ## Retrieves the current local time for a given timezone.
- * 
+ *
  * ---
  * @param timezone - The timezone for which the current local time needs to be retrieved.
  * @returns The current local time as a Date object.
@@ -152,18 +152,18 @@ export const zoneCurrentTime = (timezone: string): Date => {
  *
  * ### Input
  *   #### city - The name of the city.
- * 
+ *
  * ### Returns
  *    #### The current time in the specified city.
- * 
  *
- * 
+ *
+ *
  * ```js
  * const cityTime = currentTimeInCity("Bangkok").toLocaleString();
  * console.log(time);
  * ```
  */
-export function currentTimeInCity(city: string): Date {
+export function currentTimeInCity(city: string): Date | string {
   const utc = utcTimeStemp();
   let offset = 0;
 
@@ -174,15 +174,15 @@ export function currentTimeInCity(city: string): Date {
     }
   });
 
-  const cityTime = new Date(utc + offset);
+  const cityTime = offset !== 0 ? new Date(utc + offset) : `${city} dose not aviable for get current time.`;
   return cityTime;
 }
 /**
  * **Type definition for TimezoneNames.**
- * 
- * 
+ *
+ *
  * Represents the type definition for TimezoneNames, which includes categorized time zone names by region.
- * Contains properties for all time zones, Africa, USA, Canada, Brazil, Mexico, Antarctica, 
+ * Contains properties for all time zones, Africa, USA, Canada, Brazil, Mexico, Antarctica,
  * Indian Ocean, Atlantic Ocean, Australia, Europe, Arctic Ocean, Pacific Ocean, Chile, Asia, and the Americas.
  */
 export type TimezoneNames = {
@@ -225,7 +225,7 @@ export type TimezoneNames = {
  * - asia: A  array of time zone names in Asia.
  * - america: A  array of time zone names in the Americas.
  *
- * 
+ *
  * ```js
  * const timezoneNamesInAsia: TimezoneNames = getTimeZoneNames();
  * console.log(timezoneNamesInAsia.asia);

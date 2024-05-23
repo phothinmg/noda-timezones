@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "build": "timeout 10 node ./src/generate.js && tsup",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "keywords": [
     "timezones"

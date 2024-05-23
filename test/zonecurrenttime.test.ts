@@ -1,4 +1,4 @@
-import { zoneCurrentTime, utcTimeStemp } from "../src/index";
+import { zoneCurrentTime} from "../src/index";
 
 describe("zoneCurrentTime", () => {
   // Returns a Date object for a valid timezone input.
