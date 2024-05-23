@@ -1,0 +1,32 @@
+{
+  "name": "noda-timezones",
+  "version": "0.1.0",
+  "description": "Timezone data provided by Noda Time",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "timeout 10 node ./src/generate.js && tsup",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Pho Thin Maung",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "array-json": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
+    "typedoc": "^0.25.13",
+    "typedoc-google-tag-manager-plugin": "^1.0.5",
+    "typedoc-plugin-clarity": "^1.6.0",
+    "typedoc-plugin-extras": "^3.0.0",
+    "typedoc-plugin-include-example": "^1.2.0",
+    "typescript": "^5.4.5"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "name": "Noda Timezones",
+  "darkHighlightTheme": "dark-plus",
+  "entryPoints": ["./src/index.ts"],
+  "out": "docs",
+  "plugin": [
+    "typedoc-plugin-extras",
+    "typedoc-plugin-clarity"
+  ]
+}
