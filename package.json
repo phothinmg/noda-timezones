@@ -1,6 +1,6 @@
 {
   "name": "noda-timezones",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Timezone data provided by Noda Time",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
